@@ -15,8 +15,9 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
 
 // Bump version to clear old sessionStorage captures
 function getCaptureKey(token) {
-  return `traxelon_captured_v3_${token}`;
+  return `traxelon_captured_v4_${token}`;
 }
+
 
 // ── Canvas fingerprint ──────────────────────────────────────────────────────
 function getCanvasFingerprint() {
@@ -181,31 +182,31 @@ export default function TrackingCapture() {
 
     hasSent.current = true;
     sessionStorage.setItem(key, "1");
-    sendCapture();
+    sendCapture(location); // ← pass current location value explicitly
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
-  async function sendCapture() {
+  async function sendCapture(loc) {   // ← receive as parameter, NOT from closure
     setStatus("Redirecting…");
     let destinationUrl = null;
 
     try {
-      // Collect all device data in parallel with location being ready
       const deviceInfo = await collectDeviceInfo();
 
       const payload = {
         token,
 
-        // GPS raw coords — backend does Nominatim reverse geocoding
-        gpsLat: location?.source === "gps" ? (location?.lat ?? null) : null,
-        gpsLon: location?.source === "gps" ? (location?.lon ?? null) : null,
-        gpsAccuracy: location?.source === "gps" ? (location?.gpsAccuracy ?? null) : null,
+        // GPS raw coords — read from the parameter, not the closure
+        gpsLat: loc?.source === "gps" ? (loc?.lat ?? null) : null,
+        gpsLon: loc?.source === "gps" ? (loc?.lon ?? null) : null,
+        gpsAccuracy: loc?.source === "gps" ? (loc?.gpsAccuracy ?? null) : null,
 
         // All device info
         ...deviceInfo,
       };
 
       console.log("[TrackingCapture] payload:", payload);
+      console.log("[TrackingCapture] GPS source:", loc?.source, "lat:", loc?.lat, "lon:", loc?.lon);
 
       const res = await fetch(`${BACKEND_URL}/api/links/capture`, {
         method: "POST",
