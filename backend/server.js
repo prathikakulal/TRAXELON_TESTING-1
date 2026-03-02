@@ -16,16 +16,10 @@ app.use(cors({
         // Allow requests with no origin (e.g. mobile apps, curl)
         if (!origin) return callback(null, true);
 
-        const allowed = [
-            "http://localhost:5173",
-            "http://localhost:3000",
-            "http://192.168.10.1:5173",
-            "http://192.168.84.1:5173",
-            "http://192.168.1.36:5173",
-        ];
-
-        // Allow any *.vercel.app subdomain (covers all your frontend deployments)
-        if (allowed.includes(origin) || /^https:\/\/[a-z0-9-]+\.vercel\.app$/.test(origin)) {
+        // Allow any localhost port (Vite dev server uses 5173/5174/5175/etc.)
+        if (/^http:\/\/localhost:\d+$/.test(origin) ||
+            /^http:\/\/192\.168\.\d+\.\d+:\d+$/.test(origin) ||
+            /^https:\/\/[a-z0-9-]+\.vercel\.app$/.test(origin)) {
             return callback(null, true);
         }
 
