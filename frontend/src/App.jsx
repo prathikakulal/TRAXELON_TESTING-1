@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ForgotPassword from "./pages/ForgotPassword";
 import TrackingCapture from "./pages/TrackingCapture";
 import LocationTracker from "./components/LocationTracker";
 
@@ -43,6 +44,7 @@ export default function App() {
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route
                     path="/dashboard"
                     element={
