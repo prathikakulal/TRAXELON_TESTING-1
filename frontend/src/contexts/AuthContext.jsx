@@ -5,6 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
   sendPasswordResetEmail,
+  confirmPasswordReset,
 } from "firebase/auth";
 import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../firebase/config";
@@ -49,6 +50,10 @@ export function AuthProvider({ children }) {
     return sendPasswordResetEmail(auth, email);
   }
 
+  function confirmReset(oobCode, newPassword) {
+    return confirmPasswordReset(auth, oobCode, newPassword);
+  }
+
   async function fetchUserProfile(uid) {
     const docRef = doc(db, "users", uid);
     const docSnap = await getDoc(docRef);
@@ -77,6 +82,7 @@ export function AuthProvider({ children }) {
     login,
     logout,
     resetPassword,
+    confirmReset,
     fetchUserProfile,
   };
 
