@@ -5,6 +5,8 @@ import linksRouter from "./routes/links.js";
 
 dotenv.config();
 
+// Deploy: 2026-03-02 — dynamic CORS for *.vercel.app
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
