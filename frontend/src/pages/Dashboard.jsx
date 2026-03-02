@@ -25,7 +25,7 @@ export default function Dashboard() {
 
   // Wake up Render free-tier backend immediately and keep it alive
   useEffect(() => {
-    const ping = () => fetch(`${BACKEND_URL}/health`).catch(() => { });
+    const ping = () => fetch(`${BACKEND_URL}/api/links/health`).catch(() => { });
     ping(); // immediate wake-up on page load
     const interval = setInterval(ping, 8 * 60 * 1000); // every 8 minutes
     return () => clearInterval(interval);
