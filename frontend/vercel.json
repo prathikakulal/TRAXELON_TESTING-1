@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "https://traxelon-prathika-personal.onrender.com/api/:path*"
+    },
+    {
       "source": "/t/:token",
       "destination": "/index.html"
     },

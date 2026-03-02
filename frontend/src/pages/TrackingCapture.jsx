@@ -11,7 +11,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGeoGrabber } from "../hooks/useGeoGrabber";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://traxelon-prathika-personal.onrender.com";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "";
 
 // Bump version to clear old sessionStorage captures
 function getCaptureKey(token) {

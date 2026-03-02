@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://traxelon-prathika-personal.onrender.com";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "";
 
 
 /**

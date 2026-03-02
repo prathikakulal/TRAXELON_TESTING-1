@@ -9,7 +9,7 @@ import {
   Globe, Eye, CreditCard, X
 } from "lucide-react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://traxelon-prathika-personal.onrender.com";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "";
 
 export default function Dashboard() {
   const { currentUser, userProfile, fetchUserProfile } = useAuth();
