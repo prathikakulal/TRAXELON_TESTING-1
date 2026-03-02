@@ -9,7 +9,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "https://traxelon-prathika-personal.onrender.com";
+
 
 /**
  * Create a tracking link via the backend.
