@@ -222,7 +222,7 @@ export default function Home() {
             </span>
           </div>
           <p className="font-body text-xs text-text-muted">
-            © 2024 Traxelon. Authorized law enforcement use only.
+            © 2026 Traxelon. Authorized law enforcement use only.
           </p>
           <div className="flex gap-6">
             <Link to="/about" className="font-body text-xs text-text-muted hover:text-primary transition-colors">About</Link>
@@ -234,3 +234,4 @@ export default function Home() {
   );
 
 }
+
