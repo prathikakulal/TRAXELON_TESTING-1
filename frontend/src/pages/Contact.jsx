@@ -39,9 +39,9 @@ export default function Contact() {
         <div className="grid md:grid-cols-5 gap-8 items-stretch">
 
           {/* LEFT COLUMN */}
-          <div className="md:col-span-2 flex flex-col gap-6">
+          <div className="md:col-span-2 flex flex-col gap-6 h-full">
 
-            {/* GET IN TOUCH CARD */}
+            {/* GET IN TOUCH */}
             <div className="bg-surface-elevated border border-surface-border rounded-2xl p-6 space-y-5">
               <h3 className="font-display text-xl tracking-wider">
                 GET IN <span className="text-primary">TOUCH</span>
@@ -61,7 +61,8 @@ export default function Contact() {
                 {
                   icon: <MapPin className="w-5 h-5" />,
                   label: "Office",
-                  value: "SurePass Academy #9, II Floor, Manasa Towers, P.V.S Junction, Mangalore 575004",
+                  value:
+                    "SurePass Academy #9, II Floor, Manasa Towers, P.V.S Junction, Mangalore 575004",
                 },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -72,18 +73,16 @@ export default function Contact() {
                     <div className="text-xs text-text-muted uppercase tracking-wider">
                       {item.label}
                     </div>
-                    <div className="text-sm mt-0.5">
-                      {item.value}
-                    </div>
+                    <div className="text-sm mt-0.5">{item.value}</div>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* MAP CARD */}
+            {/* MAP */}
             <div className="bg-surface-elevated border border-surface-border rounded-2xl overflow-hidden flex flex-col flex-1">
 
-              <div className="relative w-full flex-1 min-h-[350px]">
+              <div className="relative w-full flex-1">
                 <iframe
                   title="SurePass Academy Location"
                   width="100%"
@@ -113,17 +112,20 @@ export default function Contact() {
                   Mangalore - 575004
                 </p>
               </div>
+
             </div>
           </div>
 
-          {/* RIGHT COLUMN - FORM */}
-          <div className="md:col-span-3 flex">
-            <div className="bg-surface-elevated border border-surface-border rounded-2xl p-6 w-full">
+          {/* RIGHT COLUMN */}
+          <div className="md:col-span-3 flex flex-col gap-6 h-full">
+            <div className="bg-surface-elevated border border-surface-border rounded-2xl p-6">
 
               {sent ? (
                 <div className="text-center py-12">
                   <div className="text-5xl mb-4">✔</div>
-                  <h3 className="text-2xl text-primary mb-2">MESSAGE SENT</h3>
+                  <h3 className="text-2xl text-primary mb-2">
+                    MESSAGE SENT
+                  </h3>
                   <p className="text-text-secondary">
                     We will respond within 24 working hours.
                   </p>
@@ -198,16 +200,16 @@ export default function Contact() {
                 </form>
               )}
             </div>
-          </div>
-        </div>
 
-        {/* FULL WIDTH SECURITY BOX */}
-        <div className="mt-10 bg-primary/5 border border-primary/20 rounded-2xl p-6">
-          <Shield className="w-6 h-6 text-primary mb-3" />
-          <p className="text-sm text-text-secondary leading-relaxed max-w-4xl">
-            All communications are encrypted and logged for security purposes.
-            Please use your official government email when contacting us.
-          </p>
+            {/* SECURITY BOX */}
+            <div className="mt-10 bg-primary/5 border border-primary/20 rounded-2xl p-6">
+              <Shield className="w-6 h-6 text-primary mb-3" />
+              <p className="text-sm text-text-secondary leading-relaxed max-w-4xl">
+                All communications are encrypted and logged for security purposes.
+                Please use your official government email when contacting us.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
