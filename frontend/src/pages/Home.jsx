@@ -260,15 +260,7 @@ export default function Home() {
               Sign up as a verified officer and receive 1 free credit to generate
               your first tracking link. Upgrade anytime for continued access.
             </p>
-            {!currentUser && (
-              <Link
-                to="/signup"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-surface font-body font-bold rounded-lg hover:bg-primary-dark transition-all shadow-glow hover:shadow-glow-strong"
-              >
-                Create Officer Account
-                <ChevronRight className="w-5 h-5" />
-              </Link>
-            )}
+           
           </div>
         </div>
       </section>
@@ -295,5 +287,6 @@ export default function Home() {
   );
 
 }
+
 
 
