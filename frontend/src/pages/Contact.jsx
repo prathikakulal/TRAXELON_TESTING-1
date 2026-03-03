@@ -35,7 +35,7 @@ export default function Contact() {
               </h3>
               {[
                 { icon: <Mail className="w-5 h-5" />, label: "Email", value: "educatorananth@gmail.com" },
-                { icon: <Phone className="w-5 h-5" />, label: "Hotline", value: "+91 1800-TRAXELON" },
+                { icon: <Phone className="w-5 h-5" />, label: "Hotline", value: "+91 8951511111" },
                 { icon: <MapPin className="w-5 h-5" />, label: "Office", value: "SurePass Academy #9, II Floor,Manasa Towers, P.V.S Junction,Mangalore 575004" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -133,3 +133,4 @@ function FormInput({ label, name, type = "text", value, onChange, placeholder, r
   );
 
 }
+
